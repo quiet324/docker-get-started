@@ -47,6 +47,7 @@ services:
           - "traefik.port=8000"
           - "traefik.backend=two"
           - "traefik.frontend.rule=Host:two.liangyoult.com"
+          - "traefik.admin.protocol=https"
   three:
       image: emilevauge/whoami
       networks:
