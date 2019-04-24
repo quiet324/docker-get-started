@@ -31,7 +31,7 @@ services:
         labels:
           - "traefik.port=80"
           - "traefik.backend=main"
-          - "traefik.frontend.rule=Host:liangyoult.com"
+          - "traefik.frontend.rule=Host:liangyouapp.com"
   two:
       image: jwilder/whoami
       networks:
@@ -47,7 +47,7 @@ services:
         labels:
           - "traefik.port=8000"
           - "traefik.backend=two"
-          - "traefik.frontend.rule=Host:two.liangyoult.com"
+          - "traefik.frontend.rule=Host:two.liangyouapp.com"
   three:
       image: emilevauge/whoami
       networks:
@@ -63,7 +63,7 @@ services:
         labels:
           - "traefik.port=80"
           - "traefik.backend=three"
-          - "traefik.frontend.rule=Host:three.liangyoult.com"
+          - "traefik.frontend.rule=Host:three.liangyouapp.com"
 networks:
   mynet:
     driver: overlay
