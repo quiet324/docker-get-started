@@ -19,7 +19,7 @@ services:
       networks:
         - mynet
       deploy:
-        replicas: 10
+        replicas: 2
         resources:
           limits:
             cpus: "0.1"
@@ -29,13 +29,13 @@ services:
         labels:
           - "traefik.port=80"
           - "traefik.backend=main"
-          - "traefik.frontend.rule=Host:liangyouapp.com"
+          - "traefik.frontend.rule=Host:liangyoult.com"
   two:
       image: jwilder/whoami
       networks:
         - mynet
       deploy:
-        replicas: 10
+        replicas: 2
         resources:
           limits:
             cpus: "0.1"
@@ -45,13 +45,13 @@ services:
         labels:
           - "traefik.port=8000"
           - "traefik.backend=two"
-          - "traefik.frontend.rule=Host:two.liangyouapp.com"
+          - "traefik.frontend.rule=Host:two.liangyoult.com"
   three:
       image: emilevauge/whoami
       networks:
         - mynet
       deploy:
-        replicas: 10
+        replicas: 2
         resources:
           limits:
             cpus: "0.1"
@@ -61,7 +61,7 @@ services:
         labels:
           - "traefik.port=80"
           - "traefik.backend=three"
-          - "traefik.frontend.rule=Host:three.liangyouapp.com"
+          - "traefik.frontend.rule=Host:three.liangyoult.com"
 networks:
   mynet:
     driver: overlay
