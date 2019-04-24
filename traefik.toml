@@ -13,7 +13,7 @@ defaultEntryPoints = ["https", "http"]
 
 [acme]
   email="510830568@qq.com"
-  storage = "acme.json"
+  storage = "/etc/traefik/acme.json"
   entryPoint = "https"
   onHostRule = true
 [acme.httpChallenge]
