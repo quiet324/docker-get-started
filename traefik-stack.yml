@@ -9,8 +9,8 @@ services:
       - mynet
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /etc/traefik/traefik.toml:/etc/traefik/traefik.toml
-      - /etc/traefik/acme.json:/etc/traefik/acme.json # chmod 600 /etc/traefik/acme.json
+      - ./traefik.toml:/traefik.toml
+      - ./acme.json:/acme.json # chmod 600 acme.json
     ports:
       - "80:80"
       - "443:443"
@@ -48,7 +48,6 @@ services:
           - "traefik.port=8000"
           - "traefik.backend=two"
           - "traefik.frontend.rule=Host:two.liangyoult.com"
-          - "traefik.admin.protocol=https"
   three:
       image: emilevauge/whoami
       networks:
