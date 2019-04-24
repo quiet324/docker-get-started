@@ -10,21 +10,29 @@ defaultEntryPoints = ["https","http"]
     entryPoint = "https"
   [entryPoints.https]
   address = ":443"
-  [entryPoints.https.tls]
+    [entryPoints.https.tls]
+  [entryPoints.api]
+  address = ":8080"
 
-[retry]
-
-[docker]
-endpoint = "unix:///var/run/docker.sock"
-domain = "liangyouapp.com"
-watch = true
-exposedByDefault = false
-#swarmmode=true
+[api]
+entryPoint = "api"
 
 [acme]
 email = "510830568@qq.com"
 storage = "acme.json"
 entryPoint = "https"
 onHostRule = true
-[acme.httpChallenge]
-entryPoint = "http"
+  [acme.httpChallenge]
+  entryPoint = "http"
+
+[[acme.domains]]
+  main = "liangyouapp.com"
+  sans = ["two.liangyouapp.com", "three.liangyouapp.com"]
+
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "liangyouapp.com"
+watch = true
+exposedByDefault = false
+swarmmode=true
+
