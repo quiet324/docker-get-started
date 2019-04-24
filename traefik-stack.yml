@@ -13,6 +13,7 @@ services:
       - /etc/traefik/acme.json:/etc/traefik/acme.json # chmod 600 /etc/traefik/acme.json
     ports:
       - "80:80"
+      - "443:443"
       - "8080:8080"
     command: --api
   main:

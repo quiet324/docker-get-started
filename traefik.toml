@@ -1,6 +1,7 @@
 debug = false
 logLevel = "ERROR"
 defaultEntryPoints = ["https", "http"]
+
 [entryPoints]
   [entryPoints.http]
   address = ":80"
@@ -8,19 +9,19 @@ defaultEntryPoints = ["https", "http"]
     entryPoint = "https"
   [entryPoints.https]
   address = ":443"
-  [entryPoints.https.tls]
-[retry]
-[docker]
-endpoint="unix:///var/run/docker.sock"
-domain = "liangyoult.com"
-exposedByDefault=false
-watch=true
-swarmmode=true
+    [entryPoints.https.tls]
 
 [acme]
-email="510830568@qq.com"
-storage = "acme.json"
-entryPoint = "https"
-onHostRule = true
+  email="510830568@qq.com"
+  storage = "acme.json"
+  entryPoint = "https"
+  onHostRule = true
 [acme.httpChallenge]
-entryPoint="http"
+  entryPoint="http"
+
+[docker]
+  endpoint="unix:///var/run/docker.sock"
+  domain = "liangyoult.com"
+  exposedByDefault=false
+  watch=true
+  swarmmode=true
